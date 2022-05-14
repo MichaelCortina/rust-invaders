@@ -4,15 +4,15 @@ use crate::components::{
     Enemy, Explosion, ExplosionTimer, ExplosionToSpawn, FromEnemy, FromPlayer, Laser, Movable,
     Player, SpriteSize, Velocity,
 };
-use crate::enemy::EnemyPlugin;
 use crate::player::PlayerPlugin;
+use enemy::EnemyPlugin;
 use bevy::prelude::*;
 use bevy::sprite::collide_aabb::collide;
 use std::collections::HashSet;
 
 mod components;
-mod enemy;
 mod player;
+mod enemy;
 
 //region --Asset Constants
 
@@ -36,9 +36,11 @@ const SPRITE_SCALE: f32 = 0.5;
 //region --Game Constants
 
 const BASE_SPEED: f32 = 500.;
+const TIME_STEP: f32 = 1. / 60.;
 
 const ENEMY_MAX: u32 = 2;
 const PLAYER_RESPAWN_DELAY: f64 = 2.;
+const FORMATION_MEMBERS_MAX: u32 = 2;
 
 //endregion --Game Constants
 
